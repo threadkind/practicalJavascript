@@ -67,13 +67,52 @@ var handlers = {
     view.displayTodos();
   },
   changeTodo: function() {
-    var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
-    var changeTodoTextInput = document.getElementById('changeTodoTextInput');
-    todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
-    changeTodoPositionInput.value = '';
-    changeTodoTextInput.value = '';
-    view.displayTodos();
-  },
+    // var changeTodoPositionInput = document.getElementById('changeTodoPositionInput');
+    // var changeTodoTextInput = document.getElementById('changeTodoTextInput');
+    // todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+    // changeTodoPositionInput.value = '';
+    // changeTodoTextInput.value = '';
+    // view.displayTodos();
+    
+    //remove any previous text input edit fields
+    
+  if(document.getElementById('editInputField') !== null ){
+     document.getElementById('editInputField').remove();
+     }
+   
+    //get id of this li
+    var changeTodoPositionInput = event.target.parentNode.id;   
+    //add input box over the specific todo
+    var getTodoToEdit = document.getElementById(changeTodoPositionInput)
+
+    var createInput = document.createElement('input');
+    createInput.setAttribute('id', 'editInputField');
+    getTodoToEdit.appendChild(createInput);
+    
+    var editInputField = document.getElementById('editInputField');
+    var textToEdit = ''
+
+    document.getElementById('editInputField').addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+      textToEdit = editInputField.value;
+      todoList.changeTodo(changeTodoPositionInput, textToEdit); 
+      todoList.todos[changeTodoPositionInput].todoText = textToEdit;
+      view.displayTodos();
+
+      
+    }
+    // todoList.changeTodo(changeTodoPositionInput.valueAsNumber, changeTodoTextInput.value);
+    // changeTodoPositionInput.value = '';
+    // changeTodoTextInput.value = '';
+      
+      //todoList.todos[1].todoText = textToEdit;
+
+                 
+
+})
+    
+   },
   deleteTodo: function(position) {
     todoList.deleteTodo(position);
     view.displayTodos();
@@ -170,6 +209,10 @@ var view = {
       else if(elementClicked.className === 'completeButton'){
           // handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
           handlers.toggleCompleted();
+          }
+      else if(elementClicked.className === 'editButton'){
+          // handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
+          handlers.changeTodo();
           }
 });
   
