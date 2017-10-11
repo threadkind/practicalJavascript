@@ -1,2 +1,0 @@
-# practicalJavascript
-To Do List
