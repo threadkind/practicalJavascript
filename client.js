@@ -87,6 +87,7 @@ var handlers = {
 
     var createInput = document.createElement('input');
     createInput.setAttribute('id', 'editInputField');
+    createInput.setAttribute('placeholder', 'type text to change, then press enter');
     getTodoToEdit.appendChild(createInput);
     
     var editInputField = document.getElementById('editInputField');
@@ -98,6 +99,8 @@ var handlers = {
       textToEdit = editInputField.value;
       todoList.changeTodo(changeTodoPositionInput, textToEdit); 
       todoList.todos[changeTodoPositionInput].todoText = textToEdit;
+      document.getElementById('editInputField').remove();
+
       view.displayTodos();
 
       
@@ -108,7 +111,7 @@ var handlers = {
       
       //todoList.todos[1].todoText = textToEdit;
 
-                 
+             
 
 })
     
