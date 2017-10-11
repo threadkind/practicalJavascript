@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Practical Todos</title>
+    <title>To Do List</title>
     <link id="favicon" rel="icon" href="https://hyperdev.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <h1>Todo List</h1>
+    <div class="todoList">
+    <h1>To Do List</h1>
+    
+    <div>
+      <input id="addTodoTextInput" type="text" placeholder="add to do">
+      <button onclick="handlers.addTodo()">+</button>
+
+    </div>
+    
+    <div>
+      <input class="numberInput" id="changeTodoPositionInput" type="number" placeholder="#">
+      <input id="changeTodoTextInput" type="text" placeholder="text to change">
+      <button onclick="handlers.changeTodo()">Edit</button>
+
+    </div>
+    
+    <div>
+      <input class="numberInput" id="toggleCompletedPositionInput" type="number" placeholder="#">
+      <button onclick="handlers.toggleCompleted()">✓</button>
+    </div>
 
     <div>
-      <button onclick="handlers.toggleAll()">Toggle All</button>
+      <button id="toggleButton" onclick="handlers.toggleAll()">✓ All</button>
     </div>
-    
-    <div>
-      <button onclick="handlers.addTodo()">Add</button>
-      <input id="addTodoTextInput" type="text">
-    </div>
-    
-    <div>
-      <button onclick="handlers.changeTodo()">Change Todo</button>
-      <input id="changeTodoPositionInput" type="number">
-      <input id="changeTodoTextInput" type="text">
-    </div>
-    
-    <div>
-      <button onclick="handlers.toggleCompleted()">Toggle Completed</button>
-      <input id="toggleCompletedPositionInput" type="number">
-    </div>
-    
+  
     <ul>
     </ul>
+      
+      </div>
     <script src="/client.js"></script>
   </body>
 </html>
