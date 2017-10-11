@@ -68,6 +68,14 @@ li {
   height: 28px;
   margin-top: -4px;
 }
+.editButton {
+  font-size: 8px;
+  background: #EFC749;
+  float: right;
+  width: 28px;
+  height: 28px;
+  margin-top: -4px;
+}
 input {
   margin-bottom: 12px;
   height: 30px;
@@ -91,7 +99,6 @@ input:focus {
 #changeTodoTextInput{
   width: 63%
 }
-
 .taskCompleted {
   text-decoration: line-through;
 }

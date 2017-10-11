@@ -131,6 +131,7 @@ var view = {
       todoLi.textContent = todoTextWithCompletion;
       todoLi.appendChild(this.createDeleteButton());
       todoLi.appendChild(this.createCompleteButton());
+      todoLi.appendChild(this.createEditButton());
       todosUl.appendChild(todoLi);        
                            }, this);
   },
@@ -147,6 +148,15 @@ var view = {
     completeButton.addEventListener('click', function() {
     });
     return completeButton;
+    
+  }, 
+  createEditButton: function(){
+  var editButton = document.createElement('button');
+  editButton.textContent = 'Edit';
+  editButton.className = 'editButton';  
+  editButton.addEventListener('click', function() {
+  });
+  return editButton;
     
   }, 
   setUpEventListeners: function(){
