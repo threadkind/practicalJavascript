@@ -116,8 +116,10 @@ var view = {
 
       if (todo.completed === true) {
         todoTextWithCompletion = '(x) ' + todo.todoText;
+        todoLi.classList.add('taskCompleted');
       } else {
         todoTextWithCompletion = '( ) ' + todo.todoText;
+        todoLi.classList.remove();
       }
       todoLi.id = position;
       todoLi.textContent = todoTextWithCompletion;

@@ -50,6 +50,7 @@ li {
   list-style: none;
   padding-top: 8px;
   margin-bottom: 8px;
+  text-align: center;
 }
 .deleteButton {
   background: #EA3F53;
@@ -86,4 +87,7 @@ input:focus {
   display: inline-block;
   float: right;
   margin-top: -58px;
+}
+.taskCompleted {
+  text-decoration: line-through;
 }
