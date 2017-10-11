@@ -13,7 +13,7 @@ var todoList = {
     this.todos.splice(position, 1);
   },
   toggleCompleted: function(position) {
-    var todo = this.todos[position];
+    var todo = todoList.todos[position];
     todo.completed = !todo.completed;
   },
   toggleAll: function() {
@@ -79,9 +79,15 @@ var handlers = {
     view.displayTodos();
   },
   toggleCompleted: function() {
-    var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
-    todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    // var toggleCompletedPositionInput = document.getElementById('toggleCompletedPositionInput');
+    // todoList.toggleCompleted(toggleCompletedPositionInput.valueAsNumber);
+    // toggleCompletedPositionInput.value = '';
+    // view.displayTodos();
+    var toggleCompletedPositionInput = event.target.parentNode.id;
+    //console.log(todoList.toggleCompleted(toggleCompletedPositionInput));
+    todoList.toggleCompleted(toggleCompletedPositionInput);
     toggleCompletedPositionInput.value = '';
+    console.log(toggleCompletedPositionInput);
     view.displayTodos();
   },
   toggleAll: function() {
@@ -138,15 +144,22 @@ var view = {
     var completeButton = document.createElement('button');
     completeButton.textContent = '✓';
     completeButton.className = 'completeButton';  
+    completeButton.addEventListener('click', function() {
+    });
     return completeButton;
+    
   }, 
   setUpEventListeners: function(){
     var todosUl = document.querySelector('ul');
     todosUl.addEventListener('click', function(event){
-      console.log(event.target.parentNode.id);
+      //console.log(event.target.parentNode.id);
     var elementClicked = event.target;
       if (elementClicked.className === 'deleteButton'){
           handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+          }
+      else if(elementClicked.className === 'completeButton'){
+          // handlers.toggleCompleted(parseInt(elementClicked.parentNode.id));
+          handlers.toggleCompleted();
           }
 });
   
