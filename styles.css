@@ -58,7 +58,14 @@ li {
   width: 28px;
   height: 28px;
   margin-top: -4px;
-  margin-left: -4px;
+  margin-left: 1px;
+}
+.completeButton {
+  background: #22C959;
+  float: right;
+  width: 28px;
+  height: 28px;
+  margin-top: -4px;
 }
 input {
   margin-bottom: 12px;

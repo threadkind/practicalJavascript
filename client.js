@@ -115,15 +115,16 @@ var view = {
       var todoTextWithCompletion = '';
 
       if (todo.completed === true) {
-        todoTextWithCompletion = '(x) ' + todo.todoText;
+        todoTextWithCompletion = todo.todoText;
         todoLi.classList.add('taskCompleted');
       } else {
-        todoTextWithCompletion = '( ) ' + todo.todoText;
+        todoTextWithCompletion = todo.todoText;
         todoLi.classList.remove();
       }
       todoLi.id = position;
       todoLi.textContent = todoTextWithCompletion;
       todoLi.appendChild(this.createDeleteButton());
+      todoLi.appendChild(this.createCompleteButton());
       todosUl.appendChild(todoLi);        
                            }, this);
   },
@@ -133,6 +134,12 @@ var view = {
     deleteButton.className = 'deleteButton';  
     return deleteButton;
   },
+  createCompleteButton: function(){
+    var completeButton = document.createElement('button');
+    completeButton.textContent = '✓';
+    completeButton.className = 'completeButton';  
+    return completeButton;
+  }, 
   setUpEventListeners: function(){
     var todosUl = document.querySelector('ul');
     todosUl.addEventListener('click', function(event){
