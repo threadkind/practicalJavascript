@@ -18,7 +18,7 @@ background: #6DAEDB; /* For browsers that do not support gradients */
   max-width: 350px;
   margin: 0 auto;
   margin-top: 10%;
-  margin-bottom: 25px;
+  padding-bottom: 40px;
   box-shadow: 8px 8px 8px #888888;
 }
 
@@ -39,8 +39,9 @@ button:active {
   box-shadow: 2px 2px 2px #000000;
 }
 ul{
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
+  margin-top: 50px;
   padding: 0;
 }
 li {
@@ -58,7 +59,23 @@ li {
   width: 28px;
   height: 28px;
   margin-top: -4px;
-  margin-left: -4px;
+  margin-left: 1px;
+}
+.completeButton {
+  background: #22C959;
+  float: right;
+  width: 28px;
+  height: 28px;
+  margin-top: -4px;
+  margin-left: 4px;
+}
+.editButton {
+  font-size: 8px;
+  background: #EFC749;
+  float: right;
+  width: 28px;
+  height: 28px;
+  margin-top: -4px;
 }
 input {
   margin-bottom: 12px;
@@ -83,11 +100,21 @@ input:focus {
 #changeTodoTextInput{
   width: 63%
 }
-#toggleButton{
-  display: inline-block;
-  float: right;
-  margin-top: -58px;
-}
 .taskCompleted {
   text-decoration: line-through;
+}
+#toggleButton{
+  float: right;
+}
+#editInputField{
+  position: relative;
+  background: white;
+  margin-top: -30px;
+  z-index: 20;
+}
+#spacer {
+  position: relative;
+  border-bottom: solid #ebf4fa 2px;
+  top: 22px;
+  width: 86.5%;
 }
